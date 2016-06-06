@@ -4,7 +4,7 @@
   "type":         "utils",
   "license":      "proprietary",
   "autoload": {
-    "psr-4": { "PrivateDev\\Utils": "" }
+    "psr-4": { "PrivateDev\\Utils\\": "" }
   },
   "config": {
     "platform": {
