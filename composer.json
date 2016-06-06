@@ -1,0 +1,14 @@
+{
+  "name":         "PrivateDev/Utils",
+  "description":  "Set of useful code",
+  "type":         "utils",
+  "license":      "proprietary",
+  "autoload": {
+    "psr-4": { "PrivateDev\\Utils": "" }
+  },
+  "config": {
+    "platform": {
+      "php": "5.5.9"
+    }
+  }
+}
