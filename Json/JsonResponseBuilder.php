@@ -1,12 +1,12 @@
 <?php
 
-namespace Utils\Json;
+namespace PrivateDev\Utils\Json;
 
 use League\Fractal\Manager;
 use League\Fractal\Resource\Item;
+use PrivateDev\Utils\Form\FormErrorDecorator;
 use Symfony\Component\Form\FormErrorIterator;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Utils\Form\FormErrorDecorator;
 
 class JsonResponseBuilder
 {

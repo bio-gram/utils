@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\Form;
+namespace PrivateDev\Utils\Form;
 
 use Symfony\Component\Form\FormErrorIterator;
 

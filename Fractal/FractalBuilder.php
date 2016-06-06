@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\Fractal;
+namespace PrivateDev\Utils\Fractal;
 
 use League\Fractal\Manager;
 use League\Fractal\Serializer\JsonApiSerializer;

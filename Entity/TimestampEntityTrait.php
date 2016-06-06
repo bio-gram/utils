@@ -1,6 +1,6 @@
 <?php
 
-namespace Utils\Entity;
+namespace PrivateDev\Utils\Entity;
 
 use Doctrine\ORM\Mapping\PrePersist;
 use Doctrine\ORM\Mapping\PreUpdate;
