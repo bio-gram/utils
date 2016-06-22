@@ -11,7 +11,7 @@
       "php": "5.5.9"
     }
   },
-  "requires": {
+  "require": {
     "league/fractal": "0.13.0"
   }
 }
