@@ -3,6 +3,7 @@
 namespace PrivateDev\Utils\Json;
 
 use League\Fractal\Manager;
+use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
 use PrivateDev\Utils\Form\FormErrorDecorator;
 use Symfony\Component\Form\FormErrorIterator;
@@ -44,7 +45,11 @@ class JsonResponseBuilder
      */
     public function setData($object, $transformer, $type)
     {
-        $item = new Item($object, $transformer, $type);
+        if (is_array($object)) {
+           $item = new Collection($object, $transformer, $type);
+        } else {
+            $item = new Item($object, $transformer, $type);
+        }
 
         $transformed = $this->fractal
             ->createData($item)

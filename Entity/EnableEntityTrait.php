@@ -29,10 +29,24 @@ trait EnableEntityTrait
     }
 
     /**
+     * Get enabled
+     *
+     * @return boolean
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
      * @param boolean $enabled
+     *
+     * @return $this
      */
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
+
+        return $this;
     }
 }

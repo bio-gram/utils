@@ -3,34 +3,17 @@
 namespace PrivateDev\Utils\Fractal;
 
 use League\Fractal\Manager;
-use League\Fractal\Serializer\JsonApiSerializer;
-use Symfony\Component\HttpFoundation\RequestStack;
+use PrivateDev\Utils\Json\JsonApiSerializer;
 
 class FractalBuilder
 {
-    /**
-     * @var RequestStack
-     */
-    private $requestStack;
-
-    /**
-     * FractalBuilder constructor.
-     *
-     * @param RequestStack $requestStack
-     */
-    public function __construct(RequestStack $requestStack)
-    {
-        $this->requestStack = $requestStack;
-    }
-
     /**
      * @return Manager
      */
     public function build()
     {
-        $request = $this->requestStack->getCurrentRequest();
         $fractal = new Manager();
-        $fractal->setSerializer(new JsonApiSerializer($request->getSchemeAndHttpHost()));
+        $fractal->setSerializer(new JsonApiSerializer());
 
         return $fractal;
     }
