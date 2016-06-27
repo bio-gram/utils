@@ -30,32 +30,36 @@ class JsonResponseBuilder
     {
         $this->body = [
             'data' => [],
-            'errors' => []
+            'error' => []
         ];
 
         $this->fractal = $fractal;
     }
 
+    public function setData($name, $data)
+    {
+        $this->body[$name] = $data;
+    }
+
     /**
      * @param $object
      * @param $transformer
-     * @param $type
      *
      * @return $this
      */
-    public function setData($object, $transformer, $type)
+    public function setTranformableData($object, $transformer)
     {
         if (is_array($object)) {
-           $item = new Collection($object, $transformer, $type);
+           $item = new Collection($object, $transformer);
         } else {
-            $item = new Item($object, $transformer, $type);
+            $item = new Item($object, $transformer);
         }
 
         $transformed = $this->fractal
             ->createData($item)
             ->toArray();
 
-        $this->body['data'] = $transformed['data'];
+        $this->setData('data', $transformed['data']);
 
         return $this;
     }
@@ -69,7 +73,7 @@ class JsonResponseBuilder
     {
         $decorator = new FormErrorDecorator($error);
 
-        $this->body['error'] = $decorator->format();
+        $this->setData('error', $decorator->format());
 
         return $this;
     }
