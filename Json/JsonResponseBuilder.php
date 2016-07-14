@@ -35,9 +35,17 @@ class JsonResponseBuilder
         $this->fractal = $fractal;
     }
 
-    public function setData($name, $data)
+    /**
+     * @param string $name
+     * @param mixed  $data
+     *
+     * @return $this
+     */
+    public function setData(string $name, $data)
     {
         $this->body[$name] = $data;
+
+        return $this;
     }
 
     /**
@@ -49,7 +57,7 @@ class JsonResponseBuilder
     public function setTranformableData($object, $transformer)
     {
         if (is_array($object)) {
-           $item = new Collection($object, $transformer);
+            $item = new Collection($object, $transformer);
         } else {
             $item = new Item($object, $transformer);
         }
@@ -108,7 +116,7 @@ class JsonResponseBuilder
 
         return $formatted;
     }
-    
+
     /**
      * @param int $statusCode
      *
