@@ -17,12 +17,12 @@ class JsonResponseBuilder
     /**
      * @var array
      */
-    private $body;
+    protected $body;
 
     /**
      * @var Manager
      */
-    private $fractal;
+    protected $fractal;
 
     /**
      * JsonResponseBuilder constructor.
@@ -49,29 +49,6 @@ class JsonResponseBuilder
     }
 
     /**
-     * @param $object
-     * @param $transformer
-     *
-     * @return $this
-     */
-    public function setTranformableData($object, $transformer)
-    {
-        if (is_array($object)) {
-            $item = new Collection($object, $transformer);
-        } else {
-            $item = new Item($object, $transformer);
-        }
-
-        $transformed = $this->fractal
-            ->createData($item)
-            ->toArray();
-
-        $this->setData('data', $transformed['data']);
-
-        return $this;
-    }
-
-    /**
      * @param ErrorInterface $error
      *
      * @return $this
@@ -86,7 +63,7 @@ class JsonResponseBuilder
     /**
      * @param ErrorListInterface $errorList
      *
-     * @return $this
+     * @return JsonResponseBuilder
      */
     public function addErrorList(ErrorListInterface $errorList)
     {
